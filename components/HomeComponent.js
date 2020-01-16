@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { View, Text, ScrollView } from 'react-native';
 import { Card } from 'react-native-elements';
-import { connect } from 'react-redux';
 import { baseUrl } from '../shared/baseUrl';
+import { connect } from 'react-redux';
 import Loading from './LoadingComponent';
 
 const mapStateToProps = state => {
@@ -10,8 +10,8 @@ const mapStateToProps = state => {
         campsites: state.campsites,
         promotions: state.promotions,
         partners: state.partners
-    };
-};
+    }
+}
 
 function RenderItem(props) {
     const {item} = props;
@@ -26,6 +26,7 @@ function RenderItem(props) {
             </View>
         );
     }
+
     if (item) {
         return (
             <Card
@@ -37,8 +38,9 @@ function RenderItem(props) {
                 </Text>
             </Card>
         );
+    }else {
+        return (<View />);
     }
-    return <View />;
 }
 
 class Home extends Component {
@@ -50,7 +52,7 @@ class Home extends Component {
     render() {
         return (
             <ScrollView>
-                <RenderItem
+                 <RenderItem
                     item={this.props.campsites.campsites.filter(campsite => campsite.featured)[0]}
                     isLoading={this.props.campsites.isLoading}
                     errMess={this.props.campsites.errMess}
@@ -70,4 +72,4 @@ class Home extends Component {
     }
 }
 
-export default connect(mapStateToProps)(Home);
+export default connect (mapStateToProps) (Home);

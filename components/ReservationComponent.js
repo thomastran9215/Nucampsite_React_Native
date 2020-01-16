@@ -20,7 +20,7 @@ class Reservation extends Component {
     }
 
     toggleModal() {
-        this.setState({showModal: !this.state.showModal});
+        this.setState({showModal: !this.state.showModal})
     }
 
     handleReservation() {
@@ -29,13 +29,14 @@ class Reservation extends Component {
     }
 
     resetForm() {
-        this.setState({
-            campers: 1,
-            hikeIn: false,
-            date: '',
-            showModal: false
-        });
-    }
+            this.setState({
+                campers: 1,
+                hikeIn: false,
+                date: '',
+                showModal: false
+            });
+        };
+
 
     render() {
         return (
@@ -96,15 +97,16 @@ class Reservation extends Component {
                         accessibilityLabel='Tap me to search for available campsites to reserve'
                     />
                 </View>
-                <Modal
+                <Modal 
                     animationType={'slide'}
                     transparent={false}
                     visible={this.state.showModal}
-                    onRequestClose={() => this.toggleModal()}>
+                    onRequestClose={() => this.toggleModal()}
+                >
                     <View style={styles.modal}>
                         <Text style={styles.modalTitle}>Search Campsite Reservations</Text>
-                        <Text style={styles.modalText}>Number of Campers: {this.state.campers}</Text>
-                        <Text style={styles.modalText}>Hike-In?: {this.state.hikeIn ? 'Yes' : 'No'}</Text>
+                        <Text style={styles.modalText}>Number of Campers: {this.state.campers} </Text>
+                        <Text style={styles.modalText}>Hike In?: {this.state.hikeIn ? 'Yes' : 'No'}</Text>
                         <Text style={styles.modalText}>Date: {this.state.date}</Text>
                         <Button
                             onPress={() => {
@@ -136,7 +138,7 @@ const styles = StyleSheet.create({
     formItem: {
         flex: 1
     },
-    modal: { 
+    modal: {
         justifyContent: 'center',
         margin: 20
     },

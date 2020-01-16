@@ -1,16 +1,15 @@
 import React, { Component } from 'react';
-import { View, FlatList } from 'react-native';
-import { ListItem } from 'react-native-elements';
+import { FlatList, View, Text } from 'react-native';
 import { Tile } from 'react-native-elements';
-import { connect } from 'react-redux';
 import { baseUrl } from '../shared/baseUrl';
+import { connect } from 'react-redux';
 import Loading from './LoadingComponent';
 
 const mapStateToProps = state => {
     return {
         campsites: state.campsites
-    };
-};
+    }
+}
 
 class Directory extends Component {
 
@@ -53,4 +52,4 @@ class Directory extends Component {
     }
 }
 
-export default connect(mapStateToProps)(Directory);
+export default connect(mapStateToProps) (Directory);
