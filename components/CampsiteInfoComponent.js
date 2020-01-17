@@ -119,8 +119,8 @@ class CampsiteInfo extends Component {
     }
 
     markFavorite(campsiteId) {
-        postFavorite: campsiteId => (postFavorite(campsiteId))
-    };
+        this.props.postFavorite(campsiteId);
+    }
 
     static navigationOptions = {
         title: 'Campsite Information'
